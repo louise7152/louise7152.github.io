@@ -102,6 +102,10 @@ ol {
     margin-right: 0;
 }
 
+#form1 {
+    margin-left: 240px;
+}
+
 .button {
     border: none;
     color: rgb(0, 0, 0);
@@ -150,12 +154,11 @@ map {
     max-width: 100%;
     height: auto;
     display: block;
-  }
+}
 
-  /* Define the coordinates for the image map using CSS */
-  .responsive-img area {
+.responsive-img area {
     position: absolute;
-  }
+}
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
