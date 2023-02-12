@@ -89,17 +89,13 @@ p {
 ul {
     margin-left: 240px;
     display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-right: 0;
+    text-align: left;
 }
 
 ol {
     margin-left: 240px;
     display: block;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-right: 0;
+    text-align: left;
 }
 
 #form1 {
@@ -146,7 +142,7 @@ map {
 }
 
 #form2 {
-    text-align: center;
+    justify-content: center;
     padding: 70px;
     font-size: x-large;
 }
