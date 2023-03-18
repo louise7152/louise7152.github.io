@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  
+    <script type="text/javascript">
+      function submitResume() {
+        // Get the values of the textareas
+        var eduQual = document.getElementById("educational-qualifications").value;
+        var skillSet = document.getElementById("skill-set").value;
+        var awards = document.getElementById("awards-recognition").value;
+        var workExp = document.getElementById("work-experience").value;
+        var references = document.getElementById("references").value;
+  
+        // Save the values in a text file
+        var text = "Educational Qualifications:\n" + eduQual + "\n\nSkill Set:\n" + skillSet + "\n\nAwards/Recognition:\n" + awards + "\n\nWork Experience:\n" + workExp + "\n\nReferees:\n" + referees;
+        var file = new Blob([text], {type: "text/plain;charset=utf-8"});
+        saveAs(file, "resume.txt");
+      }
+    </script>
   </head>
 
   <body>
@@ -22,6 +38,7 @@
       <a href="contact.html">Contact</a><br>
       <a href="social.html">Social</a><br>
       <a href="admin.html">Admin</a><br>
+      <a href="logout.html">Logout</a><br>
     </div>
 
     <h2>Education</h2>
@@ -54,14 +71,33 @@
 
     <h2>References</h2>
     <ul>
+      <li>Mother</li>
+      <li>Ryan Hopemere</li>
       <li>Maria Rodriguez</li>
-      <li>Michael Hopemere</li>
-      <li>My mom</li>
     </ul><br>
 
     <div class="text-center">
       <button class="button" onclick="alert('Hello world!')">Click Me!</button>
     </div><br><br>
+
+    <form id="form2">
+      <label for="educational-qualifications">Educational Qualifications:</label>
+      <textarea id="educational-qualifications" name="educational-qualifications"></textarea><br>
+  
+      <label for="skill-set">Skill Set:</label>
+      <textarea id="skill-set" name="skill-set"></textarea><br>
+  
+      <label for="awards-recognition">Awards/Recognition:</label>
+      <textarea id="awards-recognition" name="awards-recognition"></textarea><br>
+  
+      <label for="work-experience">Work Experience:</label>
+      <textarea id="work-experience" name="work-experience"></textarea><br>
+  
+      <label for="references">References:</label>
+      <textarea id="references" name="references"></textarea><br><br>
+  
+      <input type="submit" value="Submit" onclick="submitResume()"><br><br><br><br>
+    </form>
 
   </body>
 

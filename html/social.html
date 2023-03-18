@@ -7,6 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  
+    <script>
+      function submitSocials() {
+        var social1 = document.getElementById("social1").value;
+        var social2 = document.getElementById("social2").value;
+        var social3 = document.getElementById("social3").value;
+  
+        var file = new Blob([social1 + "\n\n" + social2 + "\n\n" + social3], {type: "text/plain;charset=utf-8"});
+
+        saveAs(file, "social.txt");
+      }
+    </script>
   </head>
 
   <body>
@@ -22,6 +34,7 @@
       <a href="contact.html">Contact</a><br>
       <a href="social.html">Social</a><br>
       <a href="admin.html">Admin</a><br>
+      <a href="logout.html">Logout</a><br>
     </div>
 
     <img class="responsive-img" id="social-media" src="../socialMediaIcons.png" alt="Social media icons" usemap="#iconmap" width="400" height="379">
@@ -31,6 +44,19 @@
       <area target="_blank" title="Twitter+" alt="Twitter" href="https://twitter.com/?lang=en" coords="350,12,500,220" shape="rect">
       <area target="_blank" title="Instagram" alt="Instagram" href="https://www.instagram.com/accounts/login/" coords="12,350,220,500" shape="rect">
     </map>
+
+    <form id="form2">
+      <label for="social1">Social Link 1:</label>
+      <input type="text" id="social1" name="social1"><br><br>
+    
+      <label for="social2">Social Link 2:</label>
+      <input type="text" id="social2" name="social2"><br><br>
+    
+      <label for="social3">Social Link 3:</label>
+      <input type="text" id="social3" name="social3"><br><br>
+    
+      <input type="submit" value="Submit" onclick="submitSocials()"><br><br>
+    </form>
 
   </body>
 

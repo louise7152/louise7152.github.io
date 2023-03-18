@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+      function submitProjects() {
+        var projects = document.getElementById("projects").value;
+        
+        var file = new Blob([projects], {type: "text/plain;charset=utf-8"});
+
+        saveAs(file, "projects.txt");
+      }
+    </script>
   </head>
 
   <body>
@@ -22,6 +32,7 @@
       <a href="contact.html">Contact</a><br>
       <a href="social.html">Social</a><br>
       <a href="admin.html">Admin</a><br>
+      <a href="logout.html">Logout</a><br>
     </div>
 
     <ol id="numerals-list" type="I" reversed>
@@ -33,6 +44,14 @@
       <li>Short Story Book</li>
       <li>Picture Collage</li>
     </ol>
+
+    <form id="form2">
+      <label for="projects">My Projects:</label>
+      <textarea id="projects" name="projects"></textarea><br><br>
+
+      <input type="submit" value="Submit" onclick="submitProjects()"><br><br>
+    </form>
+
 
   </body>
 

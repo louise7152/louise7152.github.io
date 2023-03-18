@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
+
+    <script>
+      function submitIndex() {
+        var proStatement = document.getElementById("professional-statement").value;
+        var briefBio = document.getElementById("brief-biography").value;
+  
+        var file = new Blob([proStatement + "\n\n" + briefBio], {type: "text/plain;charset=utf-8"});
+
+        saveAs(file, "index.txt");
+      }
+    </script>
   </head>
 
   <body>
@@ -22,15 +33,26 @@
       <a href="contact.html">Contact</a><br>
       <a href="social.html">Social</a><br>
       <a href="admin.html">Admin</a><br>
+      <a href="logout.html">Logout</a><br>
     </div>
 
+
     <form id="form2">
-      <label for="username">Username:</label>
+<!--  <label for="username">Username:</label>
       <input type="text" id="username" name="username"><br><br>
+
       <label for="password">Password:</label>
       <input type="text" id="password" name="password"><br><br>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit"><br><br><br> -->
+    
+      <label for="professional-statement">Professional Statement:</label><br><br>
+      <textarea id="professional-statement" name="professional-statement"></textarea><br><br>
+  
+      <label for="brief-biography">Brief Biography:</label><br><br>
+      <textarea id="brief-biography" name="brief-biography"></textarea><br><br>
+  
+      <input type="submit" value="Submit" onclick="submitIndex()">
     </form>
 
   </body>

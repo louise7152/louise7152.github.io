@@ -7,6 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link href="../css/styles.css" rel="stylesheet" type="text/css">
+  
+    <script>
+      function readMessages() {
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var number = document.getElementById("number").value;
+        var message = document.getElementById("message").value;
+  
+        var file = new Blob([name + "," + email + "," + number + "," + message], {type: "text/plain;charset=utf-8"});
+
+        saveAs(file, "messages.txt");
+
+        // load the content of the messages.txt file
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "messages.txt", true);
+
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            // display the content in a table
+            let messages = this.responseText.split("\n");
+            let table = "<table><thead><tr><th>Name</th><th>Email</th><th>Phone Number</th><th>Message</th></tr></thead><tbody>";
+
+            for (let i = 0; i < messages.length; i++) {
+              let message = messages[i].split(",");
+              if (message.length == 4) {
+                table += "<tr><td>" + message[0] + "</td><td>" + message[1] + "</td><td>" + message[2] + "</td><td>" + message[3] + "</td></tr>";
+              }
+            }
+
+            table += "</tbody></table>";
+            document.getElementById("messageTable").innerHTML = table;
+          }
+        }
+        xhr.send();
+      }
+    </script>
   </head>
 
   <body>
@@ -22,6 +59,7 @@
       <a href="contact.html">Contact</a><br>
       <a href="social.html">Social</a><br>
       <a href="admin.html">Admin</a><br>
+      <a href="logout.html">Logout</a><br>
     </div>
 
     <h2>Contact Me!</h2>
@@ -33,9 +71,12 @@
       <label for="phone-number">Phone Number:</label>
       <input type="text" id="phone-number" name="phone-number"><br><br>
 
-      <textarea id="textbox" name="textbox" rows="4" cols="50"></textarea><br><br>
+      <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit"><br><br><br><br>
+
+      <input type="submit" value="Read Messages" onclick="readMessages()">
+	    <div id="messageTable"></div><br><br><br><br>
     </form>
 
   </body>
